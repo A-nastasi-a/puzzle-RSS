@@ -1,0 +1,467 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: pink;
+    margin: auto;
+}
+
+.game-menu {
+    border: 3px solid rgb(201, 77, 98);
+    background: rgb(238, 174, 184);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    top: 40px;
+    margin: 0 auto;
+    width: 500px;
+    height: 700px;
+    border-radius: 30px;
+}
+
+.background-table {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+}
+
+.background-table .table-results {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    top: 150px;
+    z-index: 5;
+    border: 5px solid pink;
+    border-radius: 10px;
+}
+
+.background-table .table-results .table-space {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    border: 5px solid pink;
+    justify-content: space-around;
+    background-color: rgba(238, 174, 184, 0.3);
+    border-radius: 10px;
+    right: 35px;
+    width: 300px;
+    height: 500px;
+}
+
+.background-table .table-results .table-space .information {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-top: 5px solid pink;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.background-table .table-results .table-space .information:first-child {
+    border-top: none;
+}
+
+.background-table.hide {
+    display: none;
+}
+
+.background-table .table-results .line-of-cross {
+    display: flex;
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    right: 30px;
+    background-color: pink;
+}
+
+.background-table .table-results .line-of-cross:first-child {
+    top: 30px;
+    transform: rotate(45deg);
+}
+
+.background-table .table-results .line-of-cross:last-child {
+    top: 30px;
+    transform: rotate(-45deg);
+}
+
+.game-menu .sound-place {
+    display: flex;
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-menu .button-panel {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: 100wv;
+}
+
+.game-menu .reload-game {
+    display: flex;
+    position: relative;
+    width: 150px;
+    height: 55px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: rgb(247, 242, 243);
+    color: rgb(201, 77, 98);
+    border-radius: 5px;
+    border: 3px solid rgb(201, 77, 98);
+    font-size: 24px;
+}
+
+.game-menu .show-table {
+    display: flex;
+    position: relative;
+    /* width: 150px; */
+    height: 55px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: rgb(247, 242, 243);
+    color: rgb(201, 77, 98);
+    border-radius: 5px;
+    border: 3px solid rgb(201, 77, 98);
+    font-size: 24px;
+}
+
+.game-menu .reload-game:hover {
+    background-color: rgb(250, 203, 213);
+    color: rgb(150, 52, 68);
+}
+
+.game-menu .reload-game:active {
+    background-color: rgb(255, 98, 130);
+    color: white;
+}
+
+.game-menu .show-table:hover {
+    background-color: rgb(250, 203, 213);
+    color: rgb(150, 52, 68);
+}
+
+.game-menu .show-table:active {
+    background-color: rgb(255, 98, 130);
+    color: white;
+}
+
+.button-panel .save-game {
+    display: flex;
+    position: relative;
+    width: 90px;
+    height: 55px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: rgb(247, 242, 243);
+    color: rgb(201, 77, 98);
+    border-radius: 5px;
+    border: 3px solid rgb(201, 77, 98);
+    font-size: 24px;
+}
+
+.button-panel .save-game:hover {
+    background-color: rgb(250, 203, 213);
+    color: rgb(150, 52, 68);
+}
+
+.button-panel .save-game:active {
+    background-color: rgb(255, 98, 130);
+    color: white;
+}
+
+.game-menu .counter-container {
+    display: flex;
+    position: relative;
+    color: rgb(150, 52, 68);
+    font-size: 24px;
+    justify-content: space-between;
+    width: 230px;
+}
+
+.game-menu .game-grid {
+    display: grid;
+    position: relative;
+    top: 40px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    /* grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 0.2fr); */
+    grid-row-gap: 0px;
+}
+
+.game-menu .game-grid.tree {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 0.2fr);
+}
+
+.game-menu .game-grid.four {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 0.2fr);
+}
+
+.game-menu .game-grid.five {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 0.2fr);
+}
+
+.game-menu .game-grid.six {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 0.2fr);
+}
+
+.game-menu .game-grid.seven {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 0.2fr);
+}
+
+.game-menu .game-grid.eight {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 0.2fr);
+}
+
+.game-menu .game-grid .game-cell {
+    border: 3px solid rgb(201, 77, 98);
+    display: flex;
+    position: relative;
+    /* width: 100px;
+    height: 100px; */
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 36px;
+    background-color: rgb(247, 242, 243);
+}
+
+.game-menu .game-grid.tree .game-cell {
+    width: 133px;
+    height: 133px;
+}
+
+.game-menu .game-grid.four .game-cell {
+    width: 100px;
+    height: 100px;
+}
+
+.game-menu .game-grid.five .game-cell {
+    width: 80px;
+    height: 80px;
+}
+
+.game-menu .game-grid.six .game-cell {
+    width: 67px;
+    height: 67px;
+}
+
+.game-menu .game-grid.seven .game-cell {
+    width: 57px;
+    height: 57px;
+}
+
+.game-menu .game-grid.eight .game-cell {
+    width: 50px;
+    height: 50px;
+}
+
+.game-menu .game-grid .game-cell:hover {
+    background-color: rgb(250, 203, 213);
+}
+
+.game-menu .size-place {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: 300px;
+    font-size: 24px;
+    color: rgb(150, 52, 68);
+    top: 120px;
+}
+
+.game-menu .size-place .size-item:hover {
+    text-shadow: 0px 3px rgba(150, 52, 68, 0.7);
+}
+
+.game-menu .size-place .size-item.choosen {
+    text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+    body {
+        background-color: rgb(244, 245, 157);
+    }
+    .game-menu {
+        background-color: rgb(243, 245, 129);
+        border-color: rgb(227, 231, 0);
+    }
+    .game-menu .reload-game {
+        border-color: rgb(227, 231, 0);
+        color: rgb(178, 180, 36);
+    }
+    .game-menu .reload-game:hover {
+        background-color: rgb(246, 248, 113);
+        color: rgb(178, 180, 36);
+    }
+    .game-menu .reload-game:active {
+        color: white;
+        background-color: rgb(250, 253, 60);
+    }
+    .game-menu .show-table {
+        border-color: rgb(227, 231, 0);
+        color: rgb(178, 180, 36);
+    }
+    .game-menu .show-table:hover {
+        background-color: rgb(246, 248, 113);
+        color: rgb(178, 180, 36);
+    }
+    .game-menu .show-table:active {
+        color: white;
+        background-color: rgb(250, 253, 60);
+    }
+    .button-panel .save-game {
+        border-color: rgb(227, 231, 0);
+        color: rgb(178, 180, 36);
+    }
+    .button-panel .save-game:hover {
+        background-color: rgb(246, 248, 113);
+        color: rgb(178, 180, 36);
+    }
+    .button-panel .save-game:active {
+        color: white;
+        background-color: rgb(250, 253, 60);
+    }
+    .game-menu .counter-container {
+        color: rgb(178, 180, 36);
+    }
+    .game-menu .game-grid .game-cell {
+        border-color: rgb(227, 231, 0);
+    }
+    .game-menu .game-grid .game-cell:hover {
+        background-color: rgb(246, 248, 113);
+    }
+    .game-menu .size-place {
+        color: rgb(178, 180, 36);
+    }
+    .game-menu .size-place .size-item:hover {
+        text-shadow: 0px 3px rgba(178, 180, 36, 0.7);
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    body {
+        background-color: rgb(157, 245, 164);
+    }
+    .game-menu {
+        /* width: 500px; */
+        background-color: rgb(129, 245, 139);
+        border-color: rgb(58, 126, 63);
+        height: 730px;
+        width: 480px;
+    }
+    .game-menu .reload-game {
+        background-color: rgb(129, 245, 139);
+        border-color: rgb(58, 126, 63);
+        color: rgb(58, 126, 63)
+    }
+    .game-menu .reload-game:hover {
+        background-color: rgb(132, 250, 140);
+        color: rgb(58, 126, 63)
+    }
+    .game-menu .reload-game:active {
+        background-color: rgb(48, 240, 61);
+        color: white;
+    }
+    .game-menu .show-table {
+        background-color: rgb(129, 245, 139);
+        border-color: rgb(58, 126, 63);
+        color: rgb(58, 126, 63)
+    }
+    .game-menu .show-table:hover {
+        background-color: rgb(132, 250, 140);
+        color: rgb(58, 126, 63)
+    }
+    .game-menu .show-table:active {
+        background-color: rgb(48, 240, 61);
+        color: white;
+    }
+    .button-panel .save-game {
+        background-color: rgb(129, 245, 139);
+        border-color: rgb(58, 126, 63);
+        color: rgb(58, 126, 63)
+    }
+    .button-panel .save-game:hover {
+        background-color: rgb(132, 250, 140);
+        color: rgb(58, 126, 63)
+    }
+    .button-panel .save-game:active {
+        background-color: rgb(48, 240, 61);
+        color: white;
+    }
+    .game-menu .counter-container {
+        color: rgb(58, 126, 63);
+    }
+    .game-menu .game-grid {
+        width: 100%;
+    }
+    .game-menu .game-grid .game-cell {
+        top: 0;
+        border-color: rgb(58, 126, 63);
+        display: flex;
+    }
+    .game-menu .game-grid.tree .game-cell {
+        width: 160px;
+        height: 160px;
+    }
+    .game-menu .game-grid.four .game-cell {
+        width: 120px;
+        height: 120px;
+    }
+    .game-menu .game-grid.five .game-cell {
+        width: 96px;
+        height: 96px;
+    }
+    .game-menu .game-grid.six .game-cell {
+        width: 80px;
+        height: 80px;
+    }
+    .game-menu .game-grid.seven .game-cell {
+        width: 69px;
+        height: 69px;
+    }
+    .game-menu .game-grid.eight .game-cell {
+        width: 60px;
+        height: 60px;
+    }
+    .game-menu .game-grid .game-cell:hover {
+        background-color: rgb(129, 245, 139);
+    }
+    .game-menu .size-place {
+        color: rgb(58, 126, 63);
+        bottom: 0;
+        top: 140px;
+    }
+    .game-menu .size-place .size-item:hover {
+        text-shadow: 0px 3px rgba(58, 126, 63, 0.7);
+    }
+}
